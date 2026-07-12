@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --ocre: #8B4513;
+  --ocre-light: #C4622D;
+  --foret: #2D5016;
+  --foret-dark: #1a3009;
+  --terre: #C4622D;
+  --ivoire: #F5F0E8;
+  --brun: #1A0A00;
+  --or: #D4A853;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--brun);
+  background-color: var(--ivoire);
+  line-height: 1.6;
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* =============================================
+   MOTIFS PYGMÉES (SVG inline backgrounds)
+   ============================================= */
+.pattern-pygmee {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C4622D' fill-opacity='0.08'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pattern-foret {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%232D5016' fill-opacity='0.06'%3E%3Cpolygon points='20,0 40,20 20,40 0,20'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* =============================================
+   ANIMATIONS
+   ============================================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* =============================================
+   COMPOSANTS CUSTOM
+   ============================================= */
+.btn-primary {
+  @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300;
+  background: linear-gradient(135deg, var(--ocre), var(--ocre-light));
+  color: var(--ivoire);
+  box-shadow: 0 4px 20px rgba(139, 69, 19, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139, 69, 19, 0.4);
+}
+
+.btn-outline {
+  @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 border-2;
+  border-color: var(--ivoire);
+  color: var(--ivoire);
+}
+
+.btn-outline:hover {
+  background: var(--ivoire);
+  color: var(--brun);
+}
+
+.section-title {
+  @apply text-4xl md:text-5xl font-bold mb-4;
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--brun);
+}
+
+.section-subtitle {
+  @apply text-lg max-w-2xl mx-auto;
+  color: #4a3728;
+}
+
+.card-hover {
+  @apply transition-all duration-300;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(26, 10, 0, 0.15);
+}
+
+/* =============================================
+   HERO SECTION
+   ============================================= */
+.hero-bg {
+  background: linear-gradient(135deg,
+      #0d1f00 0%,
+      #092430 25%,
+      #164450 50%,
+      #091c30 75%,
+      #000a1f 100%,
+      #0483a7);
+}
+
+.hero-text-shadow {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* =============================================
+   NAVIGATION
+   ============================================= */
+.nav-link {
+  @apply text-sm font-medium transition-colors duration-200;
+  color: var(--ivoire);
+  opacity: 0.85;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  color: var(--or);
+}
+
+/* =============================================
+   CARDS
+   ============================================= */
+.article-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(26, 10, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(26, 10, 0, 0.15);
+}
+
+/* Badge catégorie */
+.badge-culture {
+  background: #e8f5e9;
+  color: #2D5016;
+}
+
+.badge-droits {
+  background: #fce4ec;
+  color: #8B1A4A;
+}
+
+.badge-environnement {
+  background: #e8f5e9;
+  color: #1B5E20;
+}
+
+.badge-sante {
+  background: #e3f2fd;
+  color: #0D47A1;
+}
+
+.badge-education {
+  background: #fff8e1;
+  color: #F57F17;
+}
+
+.badge-international {
+  background: #f3e5f5;
+  color: #6A1B9A;
+}
+
+/* =============================================
+   ORNEMENT PYGMÉE SVG
+   ============================================= */
+.pygmee-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.pygmee-divider::before,
+.pygmee-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ocre), transparent);
+}
+
+/* =============================================
+   SCROLL INDICATOR
+   ============================================= */
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* =============================================
+   GALERIE
+   ============================================= */
+.gallery-grid {
+  columns: 3;
+  column-gap: 1rem;
+}
+
+.gallery-grid img {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    columns: 1;
+  }
+}
+
+/* =============================================
+   FORM STYLES
+   ============================================= */
+.form-input {
+  @apply w-full px-4 py-3 rounded-xl border border-amber-200 bg-white/70 focus:outline-none focus:ring-2 transition-all duration-200;
+  focus-ring-color: var(--ocre);
+  color: var(--brun);
+}
+
+.form-input:focus {
+  border-color: var(--ocre);
+  box-shadow: 0 0 0 3px rgba(139, 69, 19, 0.15);
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
