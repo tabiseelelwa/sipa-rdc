@@ -22,13 +22,13 @@ export function getPool(): mysql.Pool {
   return pool;
 }
 
-export async function query<T = unknown>(
-  sql: string,
-  values?: unknown[]
+export async function query<T>(
+  sql: string, 
+  values?: any[] // Changez le type ici en any[]
 ): Promise<T> {
-  const pool = getPool();
-  const [rows] = await pool.execute(sql, values);
-  return rows as T;
+   const pool = getPool();
+   const [rows] = await pool.execute(sql, values);
+   return rows as T;
 }
 
 export default { query, getPool };
