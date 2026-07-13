@@ -75,7 +75,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-white/10">
+          <div className="lg:hidden bg-[#1A0A00]/95 backdrop-blur-md shadow-2xl mt-4 pb-4 border-t border-white/10">
             <div className="flex flex-col gap-1 pt-4">
               {navLinks.map((link) => (
                 <Link
