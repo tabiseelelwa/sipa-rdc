@@ -87,13 +87,6 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/contact"
-                onClick={() => setIsOpen(false)}
-                className="btn-primary text-center mt-2"
-              >
-                Nous soutenir
-              </Link>
             </div>
           </div>
         )}
