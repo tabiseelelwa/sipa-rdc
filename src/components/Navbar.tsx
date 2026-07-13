@@ -40,10 +40,10 @@ export default function Navbar() {
             </div>
             <div>
               <div className="text-[#F5F0E8] font-bold text-lg leading-tight font-display">
-                Pygmées RDC
+                SIPA-RDC
               </div>
               <div className="text-[#D4A853] text-xs tracking-widest uppercase">
-                Voix de la Forêt
+                Voix de la liberté
               </div>
             </div>
           </Link>
@@ -59,23 +59,6 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
-          </div>
-
-          {/* CTA + Mobile toggle */}
-          <div className="flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="hidden md:inline-flex btn-primary text-sm py-2 px-5"
-            >
-              Nous soutenir
-            </Link>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-lg text-[#F5F0E8] hover:bg-white/10 transition-colors"
-              aria-label="Menu"
-            >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
           </div>
         </div>
 

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { BiMapPin } from 'react-icons/bi'
-import { FaFacebook, FaLeaf, FaMailchimp,FaPhone, FaTwitter, FaYoutube } from 'react-icons/fa6'
+import { FaFacebook, FaLeaf, FaMailchimp, FaPhone, FaTwitter, FaYoutube } from 'react-icons/fa6'
 
 export default function Footer() {
   return (
@@ -17,8 +17,8 @@ export default function Footer() {
                 <FaLeaf className="w-6 h-6 text-[#F5F0E8]" />
               </div>
               <div>
-                <div className="text-xl font-bold font-display">Pygmées de la RDC</div>
-                <div className="text-[#D4A853] text-xs tracking-widest uppercase">Voix de la Forêt</div>
+                <div className="text-xl font-bold font-display">SIPA-RDC</div>
+                <div className="text-[#D4A853] text-xs tracking-widest uppercase">Voix de la liberté</div>
               </div>
             </div>
             <p className="text-[#F5F0E8]/70 leading-relaxed mb-6 max-w-sm">
@@ -95,7 +95,7 @@ export default function Footer() {
         {/* Barre de fond */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-[#F5F0E8]/50 text-sm">
-            © {new Date().getFullYear()} Pygmées de la RDC. Tous droits réservés.
+            © {new Date().getFullYear()} SIPA-RDC. Tous droits réservés.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/mentions-legales" className="text-[#F5F0E8]/50 hover:text-[#D4A853] text-sm transition-colors">
