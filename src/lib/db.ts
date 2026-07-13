@@ -24,10 +24,10 @@ export function getPool(): mysql.Pool {
 
 export async function query<T>(
   sql: string, 
-  values?: any[] // Changez le type ici en any[]
+  values?: any[]
 ): Promise<T> {
    const pool = getPool();
-   const [rows] = await pool.execute(sql, values);
+   const [rows] = await pool.execute(sql, values ?? []);
    return rows as T;
 }
 
