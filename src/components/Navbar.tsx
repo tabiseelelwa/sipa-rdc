@@ -60,6 +60,17 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
+
+          {/* CTA + Mobile toggle */}
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="lg:hidden p-2 rounded-lg text-[#F5F0E8] hover:bg-white/10 transition-colors"
+              aria-label="Menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}
